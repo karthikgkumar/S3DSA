@@ -1,3 +1,6 @@
+//4) implement a sorted push so that stack is always maintained in sorted order.
+//Using the stack do the following programs
+//4) Convert a given decimal number into binary and hex.
 #include <stdio.h>
 #define MAX 100
 int stack[MAX],top=-1;

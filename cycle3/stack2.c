@@ -1,3 +1,6 @@
+//Implement multiple stacks(2 stacks) using an array. Consider memory
+//efficient implementation
+
 #include<stdio.h>
 #define MAX 100
 int stack[MAX],top1=-1,top2=MAX;

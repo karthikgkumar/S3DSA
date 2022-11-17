@@ -1,3 +1,5 @@
+//1) Implement a stack using an array.
+
 #include<stdio.h>
 #define MAX 5
 int stack[MAX],top=-1;

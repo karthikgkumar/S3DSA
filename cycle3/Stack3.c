@@ -1,3 +1,6 @@
+//3)Find the minimum element in a stack in O(1) time using an auxiliary stack
+//which keeps track of the minimum element.
+
 #include<stdio.h>
 #define MAX 100
 int stack[MAX],top=-1;

@@ -1,3 +1,5 @@
+//5) Check whether a string is palindrome.
+
 #include<stdio.h>
 #define MAX 100
 int stack[MAX],top=-1;

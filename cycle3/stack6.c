@@ -1,3 +1,5 @@
+//6) Check whether the parenthesis are balanced in an expression.
+
 #include<stdio.h>
 #define MAX 100
 char stack[MAX],top=-1;

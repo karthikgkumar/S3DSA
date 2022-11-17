@@ -1,3 +1,5 @@
+//7) Convert a given infix expression to postfix/prefix
+
 #include<stdio.h>
 #include<ctype.h>
 #include<stdlib.h>
