@@ -2,7 +2,7 @@
 //which keeps track of the minimum element.
 
 #include<stdio.h>
-#define MAX 100
+#define MAX 5
 int stack[MAX],top=-1;
 int auxStack[MAX],auxtop=-1;
 int isEmpty(int top)
