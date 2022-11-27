@@ -2,7 +2,7 @@
 //efficient implementation
 
 #include<stdio.h>
-#define MAX 100
+#define MAX 5
 int stack[MAX],top1=-1,top2=MAX;
 void push(int stackno,int data)
 {
