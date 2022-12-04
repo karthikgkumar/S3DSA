@@ -1,3 +1,15 @@
+// 1. Queue - Implement using array and Linked List
+// Queue a First-In-First-Out (FIFO) data structure. In a FIFO data structure, the first
+// element added to the queue will be the first one to be removed. This is equivalent
+// to the requirement that whenever an element is added, all elements that were
+// added before have to be removed before the new element can be invoked. A
+// queue is an example of a linear data structure.
+
+// Queues provide services in computer science and operations research where
+// various entities such as data, objects, or events are stored and held to be
+// processed later. In these contexts, the queue performs the function of a buffer.
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX_SIZE 5
