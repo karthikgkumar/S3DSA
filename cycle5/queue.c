@@ -85,8 +85,8 @@ void EnqueueArray(int val)
     if(rear==MAX_SIZE-1)
     {
         printf("overflow\n");
+        printf("%d",rear);
     }
-    
     else if(front==-1 && rear==-1)
     {
         front=rear=0;
