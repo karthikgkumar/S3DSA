@@ -6,7 +6,7 @@ struct Node{
     struct Node *next;
 }*newnode;
 struct Node *tail=NULL; 
-int length=1;
+int length=0;
 struct Node *createnode(){
     int data;
     newnode=(struct Node *)malloc(sizeof(struct Node));
@@ -20,13 +20,11 @@ struct Node *createnode(){
 void insertbeg(){
     newnode=createnode();
     if(tail==NULL){
-        printf("%d newnode \n",newnode->data);
         
         tail=newnode;
         tail->next=newnode;
     }
     else{
-        printf("%d newnode \n",newnode->data);
         newnode->next=tail->next;
         tail->next=newnode;
     }
@@ -49,20 +47,20 @@ void insertend(){
 
 }
 
-void insertpos(int length){
+void insertpos(){
 
     struct Node *ptr;
     int pos,i=1;
     printf("enter pos\n");
     scanf("%d",&pos);
-    if(pos<0 || pos>length){
+    if(pos<0 || pos>length+1){
         printf("invalid \n");
     }
     else if (pos==1)
     {
         insertbeg();
     }
-    else if (pos==length)
+    else if (pos==length+1)
     {
         insertend();
     }
@@ -85,45 +83,98 @@ void insertpos(int length){
 
 
 void deletefront(){
-
     if (tail==NULL)
     {
         printf("Empty\n");
     }
-    tail->next=tail->next->next;
+    else if(length==1){
+        printf("%d deleted \n",tail->data);
+        tail=NULL;
+        length--;
+    }
+    else{
+        printf("%d deleted \n",tail->next->data);
+        tail->next=tail->next->next;
+        length--;
+
+    }
+    
     
 
 }
 
 void deleteend(){
-    struct Node *ptr=tail->next;
+    
     if (tail==NULL)
     {
         printf("Empty\n");
     }
-    while (ptr->next!=tail)
-    {
-        ptr=ptr->next;
+    else if(length==1){
+        printf("%d deleted \n",tail->data);
+        tail=NULL;
     }
-   
-    ptr->next=tail->next;
-    tail->next=NULL;
-    tail=ptr;
+    else{
+        struct Node *ptr=tail->next;
+        while (ptr->next!=tail)
+        {
+            ptr=ptr->next;
+        }
+        printf("%d deleted \n",tail->data);
+        ptr->next=tail->next;
+        tail->next=NULL;
+        tail=ptr;
+        length--;
+    }
+    
 
 }
 
 void deletepos(){
 
+    
+    int pos,i=1;
+    printf("enter pos\n");
+    scanf("%d",&pos);
+    if(pos<0 || pos>length+1){
+        printf("invalid \n");
+    }
+    else if (pos==1)
+    {
+        deletefront();
+    }
+    else if (pos==length+1)
+    {
+        deleteend();
+    }
+    else{
+        struct Node *prev,*other;
+        prev=tail->next;
+        while (i<pos-1)
+        {
+            prev=prev->next;
+            i++;
+        }
+        printf("%d deleted",prev->next->data);
+        other=prev->next->next;
+        prev->next->next=NULL;
+        prev->next=other;
+        length--;
+    }
+
+    
+
+
 }
 
 
 void display(){
-    struct Node *temp=tail ->next;
+    
     if(tail==NULL){
         printf("empty\n");
     }
-
-    while (temp->next!=tail)
+    else{
+        struct Node *temp=tail ->next;
+        while (temp->next!=tail)
     {
         printf("%d ->",temp->data);
         temp=temp->next;
@@ -134,6 +185,10 @@ void display(){
     else{printf("%d->",temp->data);
     temp=temp->next;
     printf("%d \n",temp->data);}
+
+    }
+
+    
 }
 
 void main(){
@@ -152,7 +207,7 @@ void main(){
             insertend();
             break;
             case 3:
-            insertpos(length);
+            insertpos();
             break;
             case 4:
             deletefront();
