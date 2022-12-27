@@ -74,6 +74,7 @@ void insertpos(){
         }
         newnode->next=ptr->next;
         ptr->next=newnode;
+        length++;
     }
 
     
@@ -98,8 +99,7 @@ void deletefront(){
         length--;
 
     }
-    
-    
+      
 
 }
 
@@ -154,7 +154,7 @@ void deletepos(){
             prev=prev->next;
             i++;
         }
-        printf("%d deleted",prev->next->data);
+        printf("%d deleted \n",prev->next->data);
         other=prev->next->next;
         prev->next->next=NULL;
         prev->next=other;
@@ -196,7 +196,7 @@ void main(){
     
     while (ch!=9)
     {   
-        printf("1.Insert at front \n2.Insert at end\n 3.Insert at any pos\n4.Delete front\n5.Delete end\n6.Delete any pos \n7.display\n8.Exit \n");
+        printf("1.Insert at front \n2.Insert at end\n3.Insert at any pos\n4.Delete front\n5.Delete end\n6.Delete any pos \n7.display\n8.Exit \n");
         printf("enter choice\n");
         scanf("%d",&ch);
         switch(ch){
