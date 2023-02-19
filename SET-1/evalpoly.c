@@ -1,30 +1,37 @@
 #include<stdio.h>
 #include<math.h>
+#include<stdlib.h>
 
 typedef struct{
     int exp;
-    int coeff;
+    float coeff;
 }polynomial;
 
 
 void readPoly(polynomial a[],int start,int end){
-    int i,k=0;
-    for(i=start;i<=end;i++,k++)
+    int i;
+    for(i=start;i<=end;i++)
     {
-        printf("Enter coefficient and exponent of term %d in order of increasing exponents: ",k+1);
-        scanf("%d",&a[i].coeff);
+        printf("Enter coefficient and exponent of term in order :");
+        scanf("%f",&a[i].coeff);
         scanf("%d",&a[i].exp);
     }
 }
 
 void printPoly(polynomial a[],int start,int end){
-    int i,k=0;
-    for(i=start;i<=end;i++,k++)
+    int i;
+    for(i=start;i<=end;i++)
     {
-        printf("%dx^%d",a[i].coeff,a[i].exp);
+        printf("%6.2fx^%d",a[i].coeff,a[i].exp);
         if(i!=end){
             printf(" + ");
         }
+        if (a[i].exp< 0)
+        {
+        	printf("cant be evaluated due to negative exponent");
+            exit(1);
+        }
+        /*  printing proper polynomial function */
     }
     printf("\n");
 }

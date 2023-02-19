@@ -7,31 +7,21 @@ typedef struct{
     int val;
 }sparse;
 
-float readtoSparse(sparse a[],int count){
-    int m,n,spar,element,k=1;
-    float sparsity;
-    printf("Enter no. of rows of matrix %d: ",count);
-    scanf("%d",&m);
-    printf("Enter no. of columns of matrix %d:",count);
-    scanf("%d",&n);
-    a[0].row = m;
-    a[0].col = n;
-    printf("Enter elements of matrix: \n");
-    for(int i =0;i<m;i++){
-        for(int j=0;j<n;j++){
-            scanf("%d",&element);
-            if(element != 0){
-                spar++;
-                a[k].row = i;
-                a[k].col = j;
-                a[k].val = element;
-                k++;
-            }
-        }
+void readSparse(sparse a[],int s){
+    int i,norows,nocols;
+    a[0].val=s;
+    printf("enter number of rows\n");
+    scanf("%d",&norows);
+    printf("enter number of columns\n");
+    scanf("%d",&nocols);
+    a[0].col=nocols;
+    a[0].row=norows;
+    printf('enter sparse matrix in sparse form \n');
+    for(i=1;i<=s;i++){
+        scanf("%d %d %d", &a[i].row,&a[i].col,&a[i].val);
     }
-    a[0].val = k-1;
-    sparsity = (float)(m*n-spar)/(m*n);
-    return sparsity;
+    
+    
 }
 
 void printSparse(sparse a[]){
@@ -41,7 +31,7 @@ void printSparse(sparse a[]){
     }
 }
 
-void sumofSparse(sparse a[],sparse b[],sparse sum[]){
+void sparseSum(sparse a[],sparse b[],sparse sum[]){
     int i=1,j=1,l=1;
     if(a[0].row != b[0].row || a[0].col != b[0].col)
     {
@@ -98,8 +88,13 @@ void sumofSparse(sparse a[],sparse b[],sparse sum[]){
 
 void main(){
     sparse a[100],b[100],sum[100];
-    readtoSparse(a,1);
-    readtoSparse(b,2);
+    int s1,s2;
+    printf("enter number of non zero elements in matrix 1 \n");
+    scanf("%d",&s1);
+    readSparse(a,s1);
+    printf("enter number of non zero elements in matrix 2 \n");
+    scanf("%d",&s2);
+    readSparse(a,s2);
     sumofSparse(a,b,sum);
     printf("\n\nFirst matrix: ");
     printSparse(a);

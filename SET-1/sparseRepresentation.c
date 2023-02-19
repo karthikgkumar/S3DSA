@@ -5,7 +5,6 @@ typedef struct{
     int col;
     int val;
 }sparse;
-
 float readtoSparse(sparse a[]){
     int m,n,spar=0,element,k=1;
     float sparsity;
