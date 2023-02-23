@@ -1,62 +1,52 @@
-#include<stdio.h>
-#include<math.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 
-typedef struct{
+typedef struct {
     int exp;
     float coeff;
-}polynomial;
+} polynomial;
 
-
-void readPoly(polynomial a[],int start,int end){
+void readPoly(polynomial a[], int n) {
     int i;
-    for(i=start;i<=end;i++)
-    {
-        printf("Enter coefficient and exponent of term in order :");
-        scanf("%f",&a[i].coeff);
-        scanf("%d",&a[i].exp);
+    for (i = 0; i < n; i++) {
+        printf("Enter coefficient and exponent of term in order: ");
+        scanf("%f %d", &a[i].coeff, &a[i].exp);
     }
 }
 
-void printPoly(polynomial a[],int start,int end){
+void printPoly(polynomial a[], int n) {
     int i;
-    for(i=start;i<=end;i++)
-    {
-        printf("%6.2fx^%d",a[i].coeff,a[i].exp);
-        if(i!=end){
+    for (i = 0; i < n; i++) {
+        printf("%6.2fx^%d", a[i].coeff, a[i].exp);
+        if (i != n - 1) {
             printf(" + ");
         }
-        if (a[i].exp< 0)
-        {
-        	printf("cant be evaluated due to negative exponent");
+        if (a[i].exp < 0) {
+            printf("can't be evaluated due to negative exponent");
             exit(1);
         }
-        /*  printing proper polynomial function */
     }
     printf("\n");
 }
 
-int evalPoly(polynomial a[],int start,int end,int x){
-    int result = 0;
-    while(start<=end){
-        result += a[start].coeff * pow(x,a[start].exp);
-        start++;
+int evalPoly(polynomial a[], int n, int x) {
+    int result = 0, i;
+    for (i = 0; i < n; i++) {
+        result += a[i].coeff * pow(x, a[i].exp);
     }
     return result;
 }
 
-
-void main(){
+int main() {
     polynomial a[100];
-    int n1,x,startA,endA;
+    int n1, x;
     printf("Enter no. of terms of the polynomial: ");
-    scanf("%d",&n1);
-    startA = 0;
-    endA = n1-1;
-    readPoly(a,startA,endA);
-    printf("Entered polynomial is : ");
-    printPoly(a,startA,endA);
+    scanf("%d", &n1);
+    readPoly(a, n1);
+    printf("Entered polynomial is: ");
+    printPoly(a, n1);
     printf("Enter value of x: ");
-    scanf("%d",&x);
-    printf("Value of Polynomial = %d",evalPoly(a,startA,endA,x));
+    scanf("%d", &x);
+    printf("Value of polynomial = %d\n", evalPoly(a, n1, x));
+    return 0;
 }

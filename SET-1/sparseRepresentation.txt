@@ -1,0 +1,36 @@
+The code is an implementation of the sparse matrix data structure in C. Sparse matrices are matrices that contain a large number of elements with a value of zero. Since most of the elements are zero, it is more efficient to store only the non-zero elements and their respective indices, instead of storing the entire matrix. This approach can save memory and computational resources.
+
+Here is a brief explanation of the functions in the code:
+
+readtoSparse function:
+
+This function takes an array of sparse structures as input, which will be used to store the sparse matrix.
+It prompts the user to enter the number of rows and columns of the matrix, and then reads the matrix elements from the user.
+For each non-zero element, it stores the row index, column index, and value of the element in a sparse structure, and increments the spar counter.
+After reading all the matrix elements, it sets the row, col, and val fields of the first sparse structure to the dimensions of the matrix and the number of non-zero elements, respectively.
+It calculates the sparsity of the matrix (i.e., the ratio of the number of zero elements to the total number of elements), and returns this value as a float.
+printSparse function:
+
+This function takes an array of sparse structures as input, which contains the sparse matrix to be printed.
+It prints the row index, column index, and value of each non-zero element in the matrix, using a loop that iterates through the sparse array.
+main function:
+
+This is the main function of the program, which calls the readtoSparse and printSparse functions to read and print the sparse matrix, respectively.
+It also calculates and prints the sparsity of the matrix, using the value returned by the readtoSparse function.
+
+OUTPUT
+Enter no. of rows of matrix: 3
+Enter no. of columns of matrix: 4
+Enter elements of matrix:
+0 0 0 1
+2 0 0 0
+0 3 4 0
+Sparse representation is :
+Rows Column Value
+3    1     1
+1    0     2
+2    1     3
+2    2     4
+Sparsity of the matrix is : 75.00%
+In this example, the user entered a 3x4 matrix with only 5 non-zero elements. The program then printed the sparse representation of the matrix, which shows the row, column, and value of each non-zero element. 
+The sparsity of the matrix is also printed, which in this case is 75%.

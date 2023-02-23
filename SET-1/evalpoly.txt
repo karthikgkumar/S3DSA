@@ -1,0 +1,12 @@
+
+
+This program is an implementation of a polynomial data structure in C.
+It allows the user to enter the number of terms in the polynomial, the coefficient and exponent of each term, and a value of x to evaluate the polynomial.
+
+The program first defines a struct named polynomial that contains two variables: exp for the exponent and coeff for the coefficient of a term. 
+The readPoly function reads the user input and stores it in an array of polynomial struct. The printPoly function prints the polynomial in a user-friendly format, and it also checks if any term has a negative exponent.
+If it does, it prints an error message and exits the program. The evalPoly function evaluates the polynomial for a given value of x using the Horner's method.
+Horner’s method can be used to evaluate polynomial in O(n) time.
+
+The main function reads the input for the number of terms of the polynomial, calls readPoly to read the coefficients and exponents, and then calls printPoly to print the polynomial.
+Finally, it asks the user to enter a value of x, and calls evalPoly to evaluate the polynomial for that value of x. The program then prints the result.

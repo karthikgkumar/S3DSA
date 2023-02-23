@@ -1,0 +1,21 @@
+The above program is an implementation of sparse matrix transpose operation in C language. A sparse matrix is a matrix in which most of the elements are zero. Therefore, it is not efficient to store these zeros in memory as it wastes space. Sparse matrix representation is a technique to represent a sparse matrix in a more efficient way by only storing the non-zero values.
+
+The program defines a structure called 'sparse' to represent the sparse matrix. The structure has three fields: row, column, and value. The 'row' and 'column' fields represent the row and column indices of the non-zero element respectively. The 'value' field stores the value of the non-zero element.
+
+The program contains the following functions:
+
+readSparse() - This function reads a sparse matrix in sparse form and stores it in an array of sparse structures.
+printSparse() - This function prints the contents of a sparse matrix in a readable format.
+transparse() - This function calculates the transpose of a sparse matrix and stores it in another array of sparse structures.
+main() - This function is the entry point of the program. It calls the readSparse() function to read the input matrix, calls the transparse() function to calculate the transpose of the input matrix, and then calls the printSparse() function to print both the input and transpose matrices.
+In the main() function, the program first declares two arrays of 'sparse' structures named 'a' and 'trans'. The readSparse() function is called to read the sparse matrix in the array 'a'. The transparse() function is called to calculate the transpose of the matrix in 'a' and store it in the array 'trans'. Finally, the printSparse() function is called to print the matrices 'a' and 'trans' in a readable format.
+
+In the transparse() function, the transpose of the sparse matrix is calculated by swapping the row and column indices of each non-zero element in the input sparse matrix. The result is stored in the 'trans' array.
+
+Overall, the program efficiently represents and calculates the transpose of a sparse matrix using the sparse matrix representation technique.
+
+The time complexity of the sparse transpose algorithm implemented in the given code is O(nz), where n is the total number of elements in the matrix and nz is the number of non-zero elements in the matrix. The outer loop in the transparse function iterates over all columns of the original matrix, which is O(n), and the inner loop iterates over all non-zero elements in the current column, which is at most O(nz). 
+Therefore, the overall time complexity of the algorithm is O(nz).
+
+The space complexity of the given code is O(nz) as well. The sparse struct contains three integer fields, so each element of the sparse matrix takes up three integers' worth of memory. Therefore, the space required to store the entire sparse matrix is proportional to the number of non-zero elements, which is O(nz). Additionally, the trans array also takes up O(nz) space, as it stores a copy of the transposed sparse matrix. 
+The space required for other variables used in the program is negligible compared to the size of the sparse matrix, so we can safely ignore it
